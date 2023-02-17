@@ -1,0 +1,71 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: sans-serif, monospace,'Courier New', Courier, monospace;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+  }
+
+  button{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1.5em 3em;
+    border: none;
+    cursor: pointer;
+    background-color: black;
+    color: red;
+  }
+
+  .far {
+    font-size: 2rem;
+  }
+
+  .results{
+    font-size: 2rem;
+    color: blue;
+    font-weight: bold;
+    margin-top: 2em;
+  }
+  
+
+  @media screen and (max-width: 480px) {
+    .buttons {
+      flex-wrap: wrap;
+      font-size: 1rem;
+    }
+  
+    button{
+        width: 5em;
+        height: 5em;
+        font-size: 0.9rem;
+    }
+    .far{
+        font: 1.5rem;
+    }
+  
+   
+  }
+  
+  
+  
+
+  
+  
+  
+ 
+  
+  
+    
+  
+  
+  
+  
