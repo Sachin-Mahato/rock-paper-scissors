@@ -1,0 +1,52 @@
+@import url(./variables.css);
+/* General styling */
+body {
+  font-family: "Barlow Semi Condensed", system-ui, sans-serif;
+  font-weight: 700;
+  background: var(--clr-bg-gradient);
+  background-repeat: no-repeat;
+  color: white;
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+  /* padding-inline: 1em; */
+
+}
+
+/* .game__container {
+  padding-inline: 1em;
+} */
+
+/* Score board */
+.score__board-container {
+  --width: 23.4375rem;
+  min-width: var(--width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  border: 3px solid var(--clr-neutral-header-outline);
+  border-radius: 4px;
+  padding-inline: 1.5em;
+  padding-block: 1em;
+  :where(.score__game-title,.score__board) {
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .score__board {
+    background-color: white;
+    color: var(--clr-neutral-score-text);
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .score__board-title {
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+    
+    .score__board-number {
+      color: var(--clr-neutral-dark-text);
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+  }
+}
