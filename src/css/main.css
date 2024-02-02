@@ -50,3 +50,107 @@ body {
     }
   }
 }
+
+.game__img-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* align-items: center; */
+  margin-block: 1em;
+}
+
+.game__img {
+  width: 50%;
+  border-radius: 50%;
+
+  margin-inline: auto;
+}
+.btn {
+  width: 130px;
+  height: 130px;
+  background-color: white;
+  border: 20px solid;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.choice__btn-paper {
+  border-color: hsl(230,89%,62%);
+  box-shadow: 0 7px 0 0 hsl(230, 54%, 45%);
+}
+.choice__btn-scissors {
+  border-color: hsl(39,89%,49%);
+  box-shadow: 0 7px 0 0 hsl(40,84%,53%) 
+}
+.choice__btn-rock {
+  border-color: hsl(349,71%,52%);
+  box-shadow: 0 7px 0 0 hsl(349, 70%,56%);
+}
+
+.game__container {
+  background-image: url(../img/bg-triangle.svg);
+  background-repeat: no-repeat;
+  background-position: center bottom 90px;
+  background-size: 200px;
+  overflow: hidden;
+  /* position: relative; */
+  /* top: 100px; */
+
+}
+.game__img-wrapper {
+  /* width: 480px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.game__img-wrapper__rock {
+  margin-block-start: 1em;
+  margin-inline: auto;
+}
+
+.rules {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block-start: 3em;
+  .rules-btn {
+    cursor: pointer;
+    background-color: hsl(237,49%,15%);
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0.4em;
+    border: 2px solid var(--clr-neutral-header-outline);
+    font-weight: 400;
+    padding: 0.2em 1.2em;
+    letter-spacing: 2px;
+  }
+}
+
+.rules__instruction {
+  display: none;
+  width: 100%;
+  min-height: 100dvh;
+  border-radius: 0.3em;
+  background-color: white;
+  margin-block-end: 1em;
+.rules__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5em;
+
+}
+  p {
+  color: var(--clr-neutral-dark-text);
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-block-start: 3em;
+  }
+}
+
+.rules__close-btn {
+  cursor: pointer;
+  /* font-weight: 700; */
+}

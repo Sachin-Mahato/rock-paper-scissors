@@ -1,43 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor</title>
-    <link rel="stylesheet" href="./src/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="./script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissor</title>
+  <link rel="stylesheet" href="./src/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="./src/js/script.js" defer></script>
 </head>
+
 <body>
-    <main class="game__container">
-      <div class="score__board-container">
-        <div class="score__game-title">
-          <p>rock</p>
-          <p>paper</p>
-          <p>scissors</p>
-        </div>
-        <div class="score__board">
-          <p class="score__board-title">score</p>
-          <p class="score__board-number">12</p>
+  <main class="game__container">
+    <!-- score board start -->
+    <div class="score__board-container">
+      <div class="score__game-title">
+        <p>rock</p>
+        <p>paper</p>
+        <p>scissors</p>
+      </div>
+      <div class="score__board">
+        <p class="score__board-title">score</p>
+        <p class="score__board-number" data-id="score">0</p>
+      </div>
+    </div>
+    <!-- score board end -->
+
+    <div class="game__img-container">
+      <div class="game__img-wrapper">
+        <button id="paper" class="choice__btn-paper btn" data-id="btn">
+          <img class="game__img paper" src="./src/img/icon-paper.svg" alt="paper">
+        </button>
+        <button id="scissors" class="choice__btn-scissors btn" data-id="btn">
+          <img class="game__img rock" src="./src/img/icon-scissors.svg" alt="scissors">
+        </button>
+      </div>
+      <div class="game__img-wrapper__rock">
+        <button id="rock" class="choice__btn-rock btn" data-id="btn">
+          <img class="game__img scissors" src="./src/img/icon-rock.svg" alt="rock">
+        </button>
+      </div>
+      <!-- Hidden rules -->
+      <div class="rules__instruction">
+        <div class="rules__wrapper">
+          <div>
+            <p>rules</p>
+          </div>
+          <div>
+            <img src="./src/img/image-rules.svg" alt="rule image">
+          </div>
+          <div class="rules__close-btn">
+            <img data-id="close__btn" src="./src/img/icon-close.svg" alt="rules close button image">
+          </div>
         </div>
       </div>
-
-      <div class="game__img-container">
-        <div class="game__img-wrapper">
-          <img src="./src/img/icon-paper.svg" alt="paper">
-          <img src="./src/img/icon-scissors.svg" alt="scissors">
-        </div>
-        <div>
-        <img src="./src/img/icon-rock.svg" alt="rock">
-        </div>
-      </div>
-
-  <div>
-
-  <button class="rules">rules</button>
-  </div>
-      
-    </main>
+    </div>
+    <div class="rules">
+      <button class="rules-btn" data-id="rule__btn">rules</button>
+    </div>
+  </main>
 </body>
+
 </html>
