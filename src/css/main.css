@@ -10,8 +10,23 @@ body {
   min-height: 100dvh;
   place-content: center;
   /* padding-inline: 1em; */
-
+  
 }
+  .game__container {
+    /* background-image: url(../img/bg-triangle.svg);
+    background-repeat: no-repeat;
+    background-position: center bottom 90px;
+    background-size: 200px; */
+    overflow: hidden;
+    /* position: relative; */
+    /* top: 100px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+  
+  }
 
 /* .game__container {
   padding-inline: 1em;
@@ -50,20 +65,22 @@ body {
     }
   }
 }
-
-.game__img-container {
+/* Select rock, paper and scissors */
+.game__img{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   margin-block: 1em;
-}
-
-.game__img {
-  width: 50%;
-  border-radius: 50%;
-
   margin-inline: auto;
+}
+.game__img__wrapper {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
 }
 .btn {
   width: 130px;
@@ -86,33 +103,18 @@ body {
   box-shadow: 0 7px 0 0 hsl(349, 70%,56%);
 }
 
-.game__container {
-  /* background-image: url(../img/bg-triangle.svg);
-  background-repeat: no-repeat;
-  background-position: center bottom 90px;
-  background-size: 200px; */
-  overflow: hidden;
-  /* position: relative; */
-  /* top: 100px; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5em;
-
-}
-.game__img-wrapper {
+.game__img-wrapper__rock__paper {
   /* width: 480px; */
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: 3em;
 }
 .game__img-wrapper__rock {
   margin-block-start: 1em;
   margin-inline: auto;
 }
-
+/* Rule button */
 .rules {
   display: flex;
   justify-content: center;
@@ -172,16 +174,31 @@ body {
 }
 
 /* Hidden */
+.hiddenChoice, .hide {
+  display: none;
+}
 
-.hiddenChoice {
+.hideChoice {
+  display: block;
+}
+
+
+.hidden__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+}
+.selection__wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2em;
+  gap: 2.5em;
 }
 .user__select, .computer__select {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
   gap: 1.5em;
@@ -190,4 +207,29 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+
+  .result__title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+  .result__btn {
+    background-color: white;
+    color: var(--clr-neutral-score-text);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0.3em;
+    padding: 0.5em 2.5em;
+    cursor: pointer;
+
+  }
 }
