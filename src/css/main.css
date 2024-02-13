@@ -43,15 +43,17 @@ body {
   border-radius: 4px;
   padding-inline: 1.5em;
   padding-block: 1em;
-  :where(.score__game-title,.score__board) {
-    text-transform: uppercase;
-    line-height: 1;
+
+  .score__game-logo {
+    max-width: 100px;
   }
   .score__board {
     background-color: white;
     color: var(--clr-neutral-score-text);
     padding: 0.5em 1em;
     border-radius: 0.3em;
+    text-transform: uppercase;
+    line-height: 1;
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     .score__board-title {
       font-size: 12px;
@@ -86,13 +88,16 @@ body {
   width: 130px;
   height: 130px;
   background-color: white;
-  border: 20px solid;
+  border: 15px solid;
   border-radius: 50%;
+  /* cursor: pointer; */
+}
+:is(.choice__btn-paper, .choice__btn-rock, .choice__btn-scissors) {
   cursor: pointer;
 }
 .choice__btn-paper {
   border-color: hsl(230,89%,62%);
-  box-shadow: 0 7px 0 0 hsl(230, 54%, 45%);
+  box-shadow: 0 5px 0 0 hsl(230, 54%, 45%);
 }
 .choice__btn-scissors {
   border-color: hsl(39,89%,49%);
@@ -180,6 +185,47 @@ body {
 
 .hideChoice {
   display: block;
+  /* position: relative; */
+}
+
+.hideChoice {
+  display: block;
+}
+.animate {
+  animation: slideFromBottom 0.5s forwards;
+}
+.animate__top {
+  animation: slideFromTop 0.5 forwards;
+}
+
+.hiddenChoice.hideChoice {
+  animation: slideFromLeft 0.5s forwards;
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 
@@ -189,6 +235,10 @@ body {
   justify-content: center;
   align-items: center;
   gap: 3em;
+  transition-duration: 3s;
+  transition-timing-function: ease-in-out;
+  /* position: absolute; */
+  /* inset: 0; */
 }
 .selection__wrapper {
   display: flex;
@@ -232,4 +282,8 @@ body {
     cursor: pointer;
 
   }
+}
+
+@media screen and (min-width: 75em) {
+  
 }

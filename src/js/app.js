@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('[data-id="btn"]');
+const buttons = document.querySelectorAll('[data-id="img"]');
 let score = document.querySelector('[data-id="score"]');
 const ruleButton = document.querySelector('[data-id="rule__btn"]');
 const closeBtn = document.querySelector('[data-id="close__btn"]');
@@ -35,10 +35,10 @@ function gameDecision(compChoice, usrChoice) {
   ) {
     resultTitle.textContent = "you lose";
   } else {
-    // score.innerText = scoreValue;
-    // console.log(typeof score.innerText);
-    // scoreValue += 1;
-    score.innerText += 1;
+    score.innerText = scoreValue;
+    console.log(typeof score.innerText);
+    scoreValue += 1;
+    score.innerText = scoreValue;
     resultTitle.textContent = "you win";
   }
 }
@@ -48,42 +48,24 @@ userChoice();
 
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
+    event.preventDefault();
     const userSelect = document.body.querySelector(".user__select");
     const computerSelect = document.body.querySelector(".computer__select");
     
-    const choiceAppended = userSelect.firstChild && computerSelect.firstChild;
-    if(!choiceAppended) {
+
       let { computerChoice, userChoice } = choice;
       computerChoice = game[Math.floor(Math.random() * game.length)];
-      userChoice = event.currentTarget;
+      userChoice = event.currentTarget.parentElement;
+      console.log('user: ', userChoice);
       const hiddenChoice = document.querySelector(".hiddenChoice");
       const hideImg = event.target.parentElement.parentElement.parentElement;
-      hiddenChoice.classList.remove('hideChoice');
-      hideImg.classList.add("hide");
+      console.log(hideImg);
+      hiddenChoice.classList.add('hideChoice');
+      hideImg.classList.add('hide');
       console.log('hideChoide', hiddenChoice)
-      userSelect.appendChild(event.currentTarget.cloneNode(true));
+      userSelect.appendChild(event.currentTarget.parentElement.cloneNode(true));
       computerSelect.appendChild(computerChoice.cloneNode(true));
       gameDecision(computerChoice, userChoice);
-
-    } else {
-      userSelect.innerHTML = '';
-      computerSelect.innerHTML = '';
-      let {computerChoice, userChoice} = choice;
-      computerChoice = game[Math.floor(Math.random() * game.length)]
-      userChoice = event.currentTarget;
-      userSelect.appendChild(userChoice.cloneNode(true));
-      computerSelect.appendChild(computerChoice.cloneNode(true));
-      gameDecision(computerChoice, userChoice)
-    }
-    
-    // Push element
-    // console.log(hideImg);
-    // // hiddenChoice.style.display = 'block';
-    // // const secondElement = parent.children[1];
-    // // parent.insertBefore(hiddenChoice, secondElement);
-    // choiceAppended = true;
-
-    // hiddenChoice.appendChild(computerChoice.cloneNode(true))
   });
 });
 // console.log(choice.userChoice);
@@ -93,8 +75,13 @@ playAgain.addEventListener('click', (event) => {
   let {computerChoice, userChoice} = choice;
   computerChoice = '';
   userChoice = '';
+    const userSelect = document.body.querySelector(".user__select");
+  const computerSelect = document.body.querySelector(".computer__select");
+  userSelect.innerHTML = '';
+  computerSelect.innerHTML = '';
   const removeHide = document.body.querySelector('.game__img__wrapper');
   removeHide.classList.remove('hide');
+  removeHide.classList.add('animate');
   const removeHiddenChoice = document.body.querySelector('.hiddenChoice');
   removeHiddenChoice.classList.remove('hideChoice');
 })
@@ -104,6 +91,7 @@ ruleButton.addEventListener("click", (event) => {
     ".rules__instruction"
   );
   displayRules.classList.toggle("game__rules");
+  displayRules.classList.add("animate");
   // Example JavaScript to trigger the transition
   document.querySelector(".game__container").classList.add("slide-up");
 });
@@ -111,12 +99,8 @@ ruleButton.addEventListener("click", (event) => {
 closeBtn.addEventListener("click", (event) => {
   const hideRules = event.target.parentElement.parentElement.parentElement;
   hideRules.classList.remove("game__rules");
+  const rulesAnimation = document.body.querySelector('.rules__instruction');
+  rulesAnimation.classList.add('animate__top');
 });
 
-
-function areChoicesAppended() {
-  const userSelect = document.body.querySelector(".user__select");
-  const computerSelect = document.body.querySelector(".computer__select");
-  return userSelect.firstChild && computerSelect.firstChild;
-}
 
