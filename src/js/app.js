@@ -24,6 +24,11 @@ const choice = {
 function gameDecision(compChoice, usrChoice) {
   const computerChoice = compChoice;
   const userChoice = usrChoice;
+  const userSelect = document.body.querySelector('.user__select');
+  const computerSelect = document.body.querySelector('.computer__select');
+  console.log("user Choice: ", computerSelect)
+  let winner;
+
   let scoreValue = parseFloat(score.innerText);
   // console.log('computer:', computerChoice, 'user: ', userChoice)
   if (computerChoice === userChoice) {
@@ -34,12 +39,23 @@ function gameDecision(compChoice, usrChoice) {
     (computerChoice === paper && userChoice === rock)
   ) {
     resultTitle.textContent = "you lose";
+    winner = false
+    if(winner === false) {
+      computerSelect.classList.add('roundedCircle');
+    }
+    playAgain.style.color = 'red';
   } else {
     score.innerText = scoreValue;
+    userSelect.classList.add('roundedCircle');
     console.log(typeof score.innerText);
     scoreValue += 1;
     score.innerText = scoreValue;
     resultTitle.textContent = "you win";
+    winner = true;
+    if(winner === true) {
+      userSelect.classList.add("roundedCircle");
+    }
+    // computerChoice.style.backgroundColor = "red";
   }
 }
 
@@ -51,18 +67,13 @@ buttons.forEach((button) => {
     event.preventDefault();
     const userSelect = document.body.querySelector(".user__select");
     const computerSelect = document.body.querySelector(".computer__select");
-    
-
       let { computerChoice, userChoice } = choice;
       computerChoice = game[Math.floor(Math.random() * game.length)];
       userChoice = event.currentTarget.parentElement;
-      console.log('user: ', userChoice);
       const hiddenChoice = document.querySelector(".hiddenChoice");
       const hideImg = event.target.parentElement.parentElement.parentElement;
-      console.log(hideImg);
       hiddenChoice.classList.add('hideChoice');
       hideImg.classList.add('hide');
-      console.log('hideChoide', hiddenChoice)
       userSelect.appendChild(event.currentTarget.parentElement.cloneNode(true));
       computerSelect.appendChild(computerChoice.cloneNode(true));
       gameDecision(computerChoice, userChoice);
